@@ -62,3 +62,31 @@ docker run -d -p 8080:80 --name webserver nginx
 docker ps
 ```
 ### List the images
+```bash
+docker images
+```
+
+### Attach to the container
+```bash
+docker container exec -it webserver bash
+```
+
+### Exit from the container
+```bash
+exit
+```
+
+### Stop the container
+```bash
+docker stop webserver
+```
+
+### Remove the container from memory
+```bash
+docker rm webserver
+```
+
+### Remove the image
+```bash
+docker rmi nginx
+```
