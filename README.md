@@ -90,3 +90,52 @@ docker rm webserver
 ```bash
 docker rmi nginx
 ```
+
+## Docker CLI Cheat Sheet - Building
+
+|       |     |
+| ----- |-----|
+| `docker build -t [name:tag] .` | Build an image using a Dockerfile located in the same folder |
+| `docker build -t [name:tag] -f [fileName]` | Build an image using a Docker file located in a different folder |
+| `docker tag [imageName] [name:tag]` | Tag an existing image |
+
+### Dockerfile - static HTML site
+```dockerfile
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
+```
+
+### Build the image
+```bash
+docker build -t webserver-image:v1 .
+```
+
+### Run the container
+```bash
+docker run -d -p 8080:80 --name webserver-container webserver-image:v1
+```
+
+### Display the running containers
+```bash
+curl localhost:8080
+```
+
+### Dockerfile - Node site
+```dockerfile
+FROM alpine
+RUN apk add --update nodejs nodejs-npm
+COPY . /src
+WORKDIR /src
+RUN npm install
+EXPOSE 8080
+ENTRYPOINT ["node", "./app.js"]
+```
+
+## Docker CLI - Tagging
+```dockerfile
+- docker tag => Create a target image
+  - name:gat
+    - myimage:v1
+  - repository/name:tag
+    - myacr.azureerc.io/myimage:v1
+```
