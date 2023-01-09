@@ -139,3 +139,12 @@ ENTRYPOINT ["node", "./app.js"]
   - repository/name:tag
     - myacr.azureerc.io/myimage:v1
 ```
+
+# Docker in Visual Studio Code
+- **Install** the Docker extension for Visual Studio Code [ms-azuretools.vscode-docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+- This sample will utilizing `Node.js` for the application. Use the following command to create a `package.json` file
+  - `npm init -y`
+- **Add Docker Files to Workspace**: using the command palette (Ctrl+Shift+P) `Docker: Add Docker Files to Workspace`
+- **Build**: the image using the command palette (Ctrl+Shift+P) `Docker: Build Image` or run the `docker build ` command in the terminal (see the section above)
+- **Run**: the image using the command palette (Ctrl+Shift+P) `Docker: Run Image` or run the `docker run ` command in the terminal (see the section above)
+- **Manage**: the images and containers by *right click* on the images on the left side panel or run the `docker ps ` command in the terminal (see the section above)
